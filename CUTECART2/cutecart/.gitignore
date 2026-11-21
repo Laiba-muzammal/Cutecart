@@ -1,0 +1,45 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+*.local
+
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+coverage
+.vite
+.cache
+
+# Credentials and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

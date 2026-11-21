@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+
+    // Base URL is 'src'
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      // FIX: Maps @lib/utils to src/lib/utils
+      "@lib/*": ["lib/*"] 
+    },
+    
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  
+  "include": ["src"]
+}
