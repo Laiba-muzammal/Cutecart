@@ -1,0 +1,31 @@
+# Local PostgreSQL & Mailpit stack for CuteCart development and database tests (M2)
+# Usage: docker compose -f docker-compose.db.yml up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cutecart-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cutecart_migrator}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cutecart_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-cutecart}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - cutecart_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cutecart_migrator} -d ${POSTGRES_DB:-cutecart}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: cutecart-mailpit
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_SMTP_PORT:-1025}:1025"
+      - "${MAILPIT_UI_PORT:-8025}:8025"
+
+volumes:
+  cutecart_pgdata:
