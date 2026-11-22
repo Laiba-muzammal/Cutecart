@@ -1,0 +1,33 @@
+{
+  "name": "cutecart-server",
+  "version": "1.0.0",
+  "description": "CuteCart backend server — PostgreSQL database, search, and background job queue (M2)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:migrate": "node src/db/cli.js up",
+    "db:migrate:down": "node src/db/cli.js down",
+    "db:migrate:reset": "node src/db/cli.js reset",
+    "db:migrate:status": "node src/db/cli.js status",
+    "seed": "node seeds/seed.js",
+    "db:seed": "node seeds/seed.js",
+    "db:explain": "node scripts/explain-queries.js",
+    "db:migrate-mongo-users": "node scripts/migrate-mongo-users.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.3",
+    "pg-boss": "^10.1.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.8"
+  }
+}
